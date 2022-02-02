@@ -1,0 +1,44 @@
+<h1>My Reddit App</h1>
+<button (click)="loadData()">Load Reddit Data</button>
+
+<ng-container *ngIf="redditdata">
+  <ng-container *ngFor="let r of redditdata.data.children">
+    <div>
+      <br>
+      {{r.data.title}} <br>
+      <img src="{{r.data.thumbnail}}"> <br>
+      <a href="http://www.reddit.com{{r.data.permalink}}">Click me to view post!</a>
+      <br>
+      <br>
+    </div>
+  </ng-container>
+</ng-container>
+
+
+
+
+
+
+
+
+<!--Stuff that I experimented with-->
+
+<!--
+<ng-container *ngIf="redditdata">
+  <ng-container *ngFor="let r of redditdata.data.children.data">
+    <div>
+      <h1>{{r.title}}</h1>
+    </div>
+  </ng-container>
+</ng-container>
+-->
+
+<!--This works!
+<ng-container *ngIf="redditdata">
+    <div>
+      <p>{{redditdata.data.children[0].data.title}}<p>
+      <img src="{{redditdata.data.children[0].data.thumbnail}}"> <br>
+      <p><a href="https://www.reddit.com{{redditdata.data.children[0].data.permalink}}">Click me to visit post!</a></p>
+    </div>
+</ng-container>
+-->
